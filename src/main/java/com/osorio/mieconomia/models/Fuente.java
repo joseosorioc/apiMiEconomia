@@ -12,19 +12,18 @@ public class Fuente implements Serializable {
 
     @Id
     @Column(name = "ID_FUENTE")
-    @SequenceGenerator(name="generator_id_fuente", sequenceName = "FUENTES_SEQ", initialValue = 1, allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE , generator ="generator_id_fuente" )
+    @SequenceGenerator(name = "generator_id_fuente", sequenceName = "FUENTES_SEQ", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_id_fuente")
     private Integer idFuente;
 
     @Column(name = "NOMBRE")
     private String nombre;
 
 
-    @OneToMany( fetch = FetchType.LAZY,  mappedBy = "fuente", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "fuente", cascade = CascadeType.ALL)
     private List<Detalle> detalleList;
 
-    public Fuente()
-    {
+    public Fuente() {
 
     }
 

@@ -4,6 +4,7 @@ import com.osorio.mieconomia.models.Fuente;
 import com.osorio.mieconomia.repositories.FuenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 
@@ -15,13 +16,11 @@ public class FuenteService {
 
 
     // Metodo guardar para guardar fuentes
-    public Fuente guardarFuente(Fuente fuente )
-    {
+    public Fuente guardarFuente(Fuente fuente) {
         return fuenteRepository.save(fuente);
     }
 
-    public Fuente editarFuente(Fuente fuente)
-    {
+    public Fuente editarFuente(Fuente fuente) {
         Fuente fuenteAEditar = obtenerFuente(fuente.getIdFuente());
 
         fuenteAEditar.setNombre(fuente.getNombre());
@@ -29,24 +28,20 @@ public class FuenteService {
         return fuenteRepository.save(fuenteAEditar);
     }
 
-    public String eliminarFuente(Integer id)
-    {
+    public String eliminarFuente(Integer id) {
         fuenteRepository.deleteById(id);
         return "OK";
     }
 
-    public Fuente obtenerFuente(Integer id)
-    {
+    public Fuente obtenerFuente(Integer id) {
         return fuenteRepository
                 .findById(id)
-                .orElseThrow(() -> new NullPointerException("Ocurrió un error al buscar la fuente con id " + id)) ;
+                .orElseThrow(() -> new NullPointerException("Ocurrió un error al buscar la fuente con id " + id));
     }
 
-    public List<Fuente> obtenerTodo()
-    {
+    public List<Fuente> obtenerTodo() {
         return fuenteRepository.findAll();
     }
-
 
 
 }
