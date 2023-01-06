@@ -20,39 +20,33 @@ public class DetalleController {
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Detalle guardarDetalle( @RequestBody  Detalle detalle)
-    {
-       return detalleService.guardarDetalle(detalle);
+    public Detalle guardarDetalle(@RequestBody Detalle detalle) {
+        return detalleService.guardarDetalle(detalle);
     }
 
     @RequestMapping(value = "/editar", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public Detalle editarDetalle( @RequestBody Detalle detalle)
-    {
+    public Detalle editarDetalle(@RequestBody Detalle detalle) {
         return detalleService.editarDetalle(detalle);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public String eliminarDetalle( @PathVariable(value = "id") Integer id)
-    {
+    public String eliminarDetalle(@PathVariable(value = "id") Integer id) {
         return detalleService.eliminarDetalle(id);
     }
 
-    @RequestMapping(value = "/buscar/{id}", method= RequestMethod.GET )
+    @RequestMapping(value = "/buscar/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Detalle buscarDetalle(@PathVariable  Integer id)
-    {
+    public Detalle buscarDetalle(@PathVariable Integer id) {
         return detalleService.obtenerDetalle(id);
     }
 
     @RequestMapping(value = "/detalles", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<Detalle> listarDetalles()
-    {
+    public List<Detalle> listarDetalles() {
         return detalleService.obtenerTodo();
     }
-
 
 
 }

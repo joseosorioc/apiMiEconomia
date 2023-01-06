@@ -12,9 +12,9 @@ public class Detalle implements Serializable {
 
     @Id
     @Column(name = "ID_DETALLE")
-    @SequenceGenerator(name="generator_id_detalle", sequenceName = "DETALLES_SEQ",
-            initialValue = 1, allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE , generator ="generator_id_detalle" )
+    @SequenceGenerator(name = "generator_id_detalle", sequenceName = "DETALLES_SEQ",
+            initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_id_detalle")
     private Integer idDetalle;
 
     @Column(name = "MONTO")
@@ -35,12 +35,12 @@ public class Detalle implements Serializable {
     private Usuario usuario;
 
     @JoinColumn(name = "CATEGORIA")
-    @ManyToOne(fetch =  FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Categoria categoria;
 
     @JoinColumn(name = "FUENTE")
-    @ManyToOne(fetch = FetchType.LAZY )
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Fuente fuente;
 

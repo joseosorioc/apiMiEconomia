@@ -15,14 +15,12 @@ public class DetalleService {
     private DetalleRepository detalleRepository;
 
 
-    public Detalle guardarDetalle(Detalle detalle)
-    {
+    public Detalle guardarDetalle(Detalle detalle) {
         return detalleRepository.save(detalle);
     }
 
-    public Detalle editarDetalle(Detalle detalle)
-    {
-        Detalle detalleABuscar =  obtenerDetalle(detalle.getIdDetalle());
+    public Detalle editarDetalle(Detalle detalle) {
+        Detalle detalleABuscar = obtenerDetalle(detalle.getIdDetalle());
         detalleABuscar.setCaracteristica(detalle.getCaracteristica());
         detalleABuscar.setCategoria(detalle.getCategoria());
         detalleABuscar.setFuente(detalle.getFuente());
@@ -35,24 +33,20 @@ public class DetalleService {
 
     }
 
-    public String eliminarDetalle(Integer id)
-    {
-       detalleRepository.deleteById(id);
+    public String eliminarDetalle(Integer id) {
+        detalleRepository.deleteById(id);
 
         return "OK";
     }
 
-    public Detalle obtenerDetalle(Integer id )
-    {
+    public Detalle obtenerDetalle(Integer id) {
         return detalleRepository.findById(id)
-                .orElseThrow(() -> new NullPointerException("No se pudo encontrar el detalle con id: " + id)) ;
+                .orElseThrow(() -> new NullPointerException("No se pudo encontrar el detalle con id: " + id));
     }
 
-    public List<Detalle> obtenerTodo()
-    {
+    public List<Detalle> obtenerTodo() {
         return detalleRepository.findAll();
     }
-
 
 
 }
