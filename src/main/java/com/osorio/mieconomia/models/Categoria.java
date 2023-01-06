@@ -10,9 +10,9 @@ import java.util.List;
 public class Categoria implements Serializable {
 
     @Id
-    @Column(name="ID_CATEGORIA")
-    @SequenceGenerator(name="generator_id_categoria", sequenceName = "CATEGORIA_SEQ",
-            initialValue = 1, allocationSize=1)
+    @Column(name = "ID_CATEGORIA")
+    @SequenceGenerator(name = "generator_id_categoria", sequenceName = "CATEGORIA_SEQ",
+            initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_id_categoria")
     private Integer idCategoria;
 
@@ -26,9 +26,7 @@ public class Categoria implements Serializable {
     private List<Detalle> detallesList;
 
 
-
-    public Categoria()
-    {
+    public Categoria() {
 
     }
 
