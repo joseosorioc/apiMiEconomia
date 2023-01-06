@@ -1,11 +1,17 @@
 package com.osorio.mieconomia.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+@Getter
+@Setter
+@ToString
 @Entity(name = "CATEGORIAS")
 public class Categoria implements Serializable {
 
@@ -23,6 +29,7 @@ public class Categoria implements Serializable {
     private String descripcion;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Detalle> detallesList;
 
 
@@ -36,46 +43,5 @@ public class Categoria implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Integer getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    @Override
-    public String toString() {
-        return "Categoria{" +
-                "idCategoria=" + idCategoria +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
-    }
-
-    @JsonIgnore
-    public List<Detalle> getDetallesList() {
-        return detallesList;
-    }
-
-    public void setDetallesList(List<Detalle> detallesList) {
-        this.detallesList = detallesList;
-    }
 
 }

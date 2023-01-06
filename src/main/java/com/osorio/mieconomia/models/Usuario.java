@@ -1,6 +1,9 @@
 package com.osorio.mieconomia.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +11,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity(name = "USUARIOS")
+@Getter
+@Setter
+@ToString
 public class Usuario implements Serializable {
 
     @Id
@@ -49,72 +55,5 @@ public class Usuario implements Serializable {
         this.salario = salario;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "idUsuario=" + idUsuario +
-                ", nombres='" + nombres + '\'' +
-                ", primerApellido='" + primerApellido + '\'' +
-                ", segundoApellido='" + segundoApellido + '\'' +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                ", salario=" + salario +
-                '}';
-    }
-
-    @JsonIgnore
-    public List<Detalle> getDetalleList() {
-        return detalleList;
-    }
-
-    public void setDetalleList(List<Detalle> detalleList) {
-        this.detalleList = detalleList;
-    }
 }

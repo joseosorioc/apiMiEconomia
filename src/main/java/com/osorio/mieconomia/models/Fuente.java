@@ -1,11 +1,13 @@
 package com.osorio.mieconomia.models;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+
+@Getter
+@Setter
 
 @Entity(name = "FUENTES")
 public class Fuente implements Serializable {
@@ -33,28 +35,5 @@ public class Fuente implements Serializable {
     }
 
 
-    public Integer getIdFuente() {
-        return idFuente;
-    }
 
-    public void setIdFuente(Integer idFuente) {
-        this.idFuente = idFuente;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @JsonIgnore
-    public List<Detalle> getDetalleList() {
-        return detalleList;
-    }
-
-    public void setDetalleList(List<Detalle> detalleList) {
-        this.detalleList = detalleList;
-    }
 }
