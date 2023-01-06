@@ -12,31 +12,30 @@ public class Usuario implements Serializable {
 
     @Id
     @Column(name = "ID_USUARIO")
-    @SequenceGenerator(name="generator_id_usuario", sequenceName = "USUARIO_SEQ", initialValue = 1, allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE , generator ="generator_id_usuario" )
+    @SequenceGenerator(name = "generator_id_usuario", sequenceName = "USUARIO_SEQ", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_id_usuario")
     private Integer idUsuario;
 
     @Column(name = "NOMBRES")
     private String nombres;
 
-    @Column(name="PRIMER_APELLIDO")
+    @Column(name = "PRIMER_APELLIDO")
     private String primerApellido;
 
     @Column(name = "SEGUNDO_APELLIDO")
     private String segundoApellido;
 
-    @Column(name="FECHA_NACIMIENTO")
+    @Column(name = "FECHA_NACIMIENTO")
     private LocalDate fechaNacimiento;
 
     @Column(name = "SALARIO")
     private Double salario;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Detalle> detalleList ;
+    private List<Detalle> detalleList;
 
 
-    public Usuario()
-    {
+    public Usuario() {
 
     }
 
@@ -110,7 +109,7 @@ public class Usuario implements Serializable {
                 '}';
     }
 
-   @JsonIgnore
+    @JsonIgnore
     public List<Detalle> getDetalleList() {
         return detalleList;
     }

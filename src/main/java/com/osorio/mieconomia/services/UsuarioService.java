@@ -18,13 +18,11 @@ public class UsuarioService {
 
     private static Logger logger = Logger.getLogger("Logger");
 
-    public Usuario guardar(Usuario usuario)
-    {
-        return  usuarioRepository.save(usuario);
+    public Usuario guardar(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
-    public Usuario editar(Usuario usuario)
-    {
+    public Usuario editar(Usuario usuario) {
         Usuario usuarioAEditar = usuarioRepository.findById(usuario.getIdUsuario()).get();
         usuarioAEditar.setNombres(usuario.getNombres());
         usuarioAEditar.setPrimerApellido(usuario.getPrimerApellido());
@@ -35,21 +33,18 @@ public class UsuarioService {
         return usuarioRepository.save(usuarioAEditar);
     }
 
-    public void eliminar(Integer id)
-    {
+    public void eliminar(Integer id) {
         usuarioRepository.deleteById(id);
     }
 
-    public List<Usuario> obtenerTodos()
-    {
+    public List<Usuario> obtenerTodos() {
         return usuarioRepository.findAll();
     }
 
-    public Usuario buscarUsuario(Integer id)
-    {
+    public Usuario buscarUsuario(Integer id) {
         return usuarioRepository
                 .findById(id)
-                .orElseThrow( () -> new NullPointerException("No se encontró usuario con id: " +  id));
+                .orElseThrow(() -> new NullPointerException("No se encontró usuario con id: " + id));
     }
 
 

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.osorio.mieconomia.models.Usuario;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,38 +21,33 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
 
-    @RequestMapping(value = "/guardar", method = RequestMethod.POST )
+    @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario guardarUsuario(@RequestBody Usuario usuario)
-    {
-        return usuarioService.guardar(usuario) ;
+    public Usuario guardarUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.guardar(usuario);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<String>  eliminarUsuario( @PathVariable Integer id)
-    {
-         usuarioService.eliminar(id);
-         return new ResponseEntity<String>(HttpStatus.OK);
+    public ResponseEntity<String> eliminarUsuario(@PathVariable Integer id) {
+        usuarioService.eliminar(id);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/editar" , method = RequestMethod.PUT)
+    @RequestMapping(value = "/editar", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public Usuario editarUsuario(@RequestBody Usuario usuario)
-    {
+    public Usuario editarUsuario(@RequestBody Usuario usuario) {
         return usuarioService.editar(usuario);
     }
 
-    @RequestMapping(value ="/buscar/{id}",method = RequestMethod.GET )
+    @RequestMapping(value = "/buscar/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Usuario buscarUsuario( @PathVariable Integer id)
-    {
-      return usuarioService.buscarUsuario(id);
+    public Usuario buscarUsuario(@PathVariable Integer id) {
+        return usuarioService.buscarUsuario(id);
     }
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
-    public List<Usuario> obtenerUsuarios()
-    {
+    public List<Usuario> obtenerUsuarios() {
         /*
         List<Usuario> listaUsuarios = new ArrayList<>();
       listaUsuarios.add(new Usuario(11, "Francisco",
@@ -59,7 +55,6 @@ public class UsuarioController {
       return listaUsuarios;*/
         return usuarioService.obtenerTodos();
     }
-
 
 
 }
