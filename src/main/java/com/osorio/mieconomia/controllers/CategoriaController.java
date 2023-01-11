@@ -46,10 +46,11 @@ public class CategoriaController {
 
     @RequestMapping(value = "/categorias", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Page<Categoria> obtenerCategorias( Pageable pageable ) {
+    @CrossOrigin
+    public List<Categoria> obtenerCategorias( ) {
 
         // Pageable pageable = PageRequest.of(page, 2);
-        return categoriaService.obtenerTodo(pageable);
+        return categoriaService.obtenerTodo();
     }
 
 

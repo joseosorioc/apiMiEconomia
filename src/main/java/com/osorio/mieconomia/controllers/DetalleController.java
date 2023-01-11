@@ -5,6 +5,8 @@ import com.osorio.mieconomia.models.Detalle;
 import com.osorio.mieconomia.services.DetalleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +46,9 @@ public class DetalleController {
 
     @RequestMapping(value = "/detalles", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<Detalle> listarDetalles() {
-        return detalleService.obtenerTodo();
+    @CrossOrigin
+    public Page<Detalle> listarDetalles(Pageable pageable) {
+        return detalleService.obtenerTodo(pageable);
     }
 
 
