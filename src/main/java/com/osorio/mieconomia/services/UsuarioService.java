@@ -2,11 +2,12 @@ package com.osorio.mieconomia.services;
 
 import com.osorio.mieconomia.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.osorio.mieconomia.models.Usuario;
 
-import java.time.LocalDate;
-import java.util.List;
+
 import java.util.logging.Logger;
 
 
@@ -37,8 +38,8 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
-    public List<Usuario> obtenerTodos() {
-        return usuarioRepository.findAll();
+    public Page<Usuario> obtenerTodos(Pageable pageable) {
+        return usuarioRepository.findAll(pageable);
     }
 
     public Usuario buscarUsuario(Integer id) {

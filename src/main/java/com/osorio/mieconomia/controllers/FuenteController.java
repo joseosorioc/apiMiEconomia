@@ -49,8 +49,8 @@ public class FuenteController {
     @RequestMapping(value = "/fuentes", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @CrossOrigin
-    public Page<Fuente> obtenerTodasLasFuentes(Pageable pageable) {
-        return fuenteService.obtenerTodo(pageable);
+    public List<Fuente> obtenerTodasLasFuentes() {
+        return fuenteService.obtenerTodo();
     }
 
 

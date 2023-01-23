@@ -38,6 +38,7 @@ public class Usuario implements Serializable {
     private Double salario;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Detalle> detalleList;
 
 

@@ -53,8 +53,8 @@ public class CategoriaService {
 
 
     @Transactional(readOnly = true)
-    public Page<Categoria> obtenerTodo(Pageable pageable) {
-        return categoriaRepository.findAll( pageable );
+    public List<Categoria> obtenerTodo() {
+        return categoriaRepository.findAll( );
     }
 
 

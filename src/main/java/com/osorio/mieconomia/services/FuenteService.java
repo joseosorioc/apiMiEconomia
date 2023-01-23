@@ -2,12 +2,15 @@ package com.osorio.mieconomia.services;
 
 import com.osorio.mieconomia.models.Fuente;
 import com.osorio.mieconomia.repositories.FuenteRepository;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 @Service("FuenteService")
 public class FuenteService {
 

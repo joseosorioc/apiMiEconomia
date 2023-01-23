@@ -47,5 +47,20 @@ public class Detalle implements Serializable {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Fuente fuente;
 
+
+    public Detalle() {
+    }
+
+
+    public Detalle(Integer idDetalle, Double monto, String comentario, String caracteristica, LocalDate fechaGeneracion, Usuario usuario, Categoria categoria, Fuente fuente) {
+        this.idDetalle = idDetalle;
+        this.monto = monto;
+        this.comentario = comentario;
+        this.caracteristica = caracteristica;
+        this.fechaGeneracion = fechaGeneracion;
+        this.usuario = usuario;
+        this.categoria = categoria;
+        this.fuente = fuente;
+    }
 }
 

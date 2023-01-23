@@ -3,11 +3,13 @@ package com.osorio.mieconomia.services;
 
 import com.osorio.mieconomia.models.Detalle;
 import com.osorio.mieconomia.repositories.DetalleRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Slf4j
 @Service("DetalleService")
 public class DetalleService {
 
@@ -44,9 +46,10 @@ public class DetalleService {
                 .orElseThrow(() -> new NullPointerException("No se pudo encontrar el detalle con id: " + id));
     }
 
-    public List<Detalle> obtenerTodo() {
-        return detalleRepository.findAll();
+    public Page<Detalle> obtenerTodo(Pageable pageable) {
+        return detalleRepository.findAll(pageable);
     }
+
 
 
 }

@@ -1,4 +1,5 @@
 package com.osorio.mieconomia.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +24,7 @@ public class Fuente implements Serializable {
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "fuente", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Detalle> detalleList;
 
     public Fuente() {
