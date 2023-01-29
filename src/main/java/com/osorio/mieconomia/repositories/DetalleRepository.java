@@ -1,6 +1,7 @@
 package com.osorio.mieconomia.repositories;
 
-import com.osorio.mieconomia.models.Detalle;
+
+import com.osorio.developer.commons.models.Detalle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

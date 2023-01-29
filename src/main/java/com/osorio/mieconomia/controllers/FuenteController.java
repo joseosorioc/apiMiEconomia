@@ -1,11 +1,13 @@
 package com.osorio.mieconomia.controllers;
 
 
-import com.osorio.mieconomia.models.Categoria;
-import com.osorio.mieconomia.models.Fuente;
+
+import com.osorio.developer.commons.models.Fuente;
 import com.osorio.mieconomia.services.FuenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,6 +48,7 @@ public class FuenteController {
 
     @RequestMapping(value = "/fuentes", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public List<Fuente> obtenerTodasLasFuentes() {
         return fuenteService.obtenerTodo();
     }

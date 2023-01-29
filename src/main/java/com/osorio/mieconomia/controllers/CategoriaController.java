@@ -1,17 +1,15 @@
 package com.osorio.mieconomia.controllers;
 
-
-import com.osorio.mieconomia.models.Categoria;
+import com.osorio.developer.commons.models.Categoria;
 import com.osorio.mieconomia.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 
 @RestController
 @RequestMapping(path = "api/v1/categoria")
@@ -47,10 +45,11 @@ public class CategoriaController {
 
     @RequestMapping(value = "/categorias", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Page<Categoria> obtenerCategorias( @RequestParam(name = "page", defaultValue = "0") int page  ) {
+    @CrossOrigin
+    public List<Categoria> obtenerCategorias( ) {
 
-        Pageable pageable = PageRequest.of(page, 2);
-        return categoriaService.obtenerTodo(pageable);
+        // Pageable pageable = PageRequest.of(page, 2);
+        return categoriaService.obtenerTodo();
     }
 
 
