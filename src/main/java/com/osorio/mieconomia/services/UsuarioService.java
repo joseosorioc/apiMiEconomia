@@ -1,11 +1,12 @@
 package com.osorio.mieconomia.services;
 
+import com.osorio.developer.commons.models.Usuario;
 import com.osorio.mieconomia.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import com.osorio.mieconomia.models.Usuario;
+
 
 
 import java.util.logging.Logger;

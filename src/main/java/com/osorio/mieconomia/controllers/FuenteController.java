@@ -1,8 +1,8 @@
 package com.osorio.mieconomia.controllers;
 
 
-import com.osorio.mieconomia.models.Categoria;
-import com.osorio.mieconomia.models.Fuente;
+
+import com.osorio.developer.commons.models.Fuente;
 import com.osorio.mieconomia.services.FuenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
