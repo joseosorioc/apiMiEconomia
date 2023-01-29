@@ -1,7 +1,6 @@
 package com.osorio.mieconomia.services;
 
-
-import com.osorio.mieconomia.models.Detalle;
+import com.osorio.developer.commons.models.Detalle;
 import com.osorio.mieconomia.repositories.DetalleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

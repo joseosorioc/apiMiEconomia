@@ -1,12 +1,13 @@
 package com.osorio.mieconomia.controllers;
 
+import com.osorio.developer.commons.models.Usuario;
 import com.osorio.mieconomia.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.osorio.mieconomia.models.Usuario;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -48,11 +49,7 @@ public class UsuarioController {
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
     public List<Usuario> obtenerUsuarios() {
-        /*
-        List<Usuario> listaUsuarios = new ArrayList<>();
-      listaUsuarios.add(new Usuario(11, "Francisco",
-                "Pedrol", "Parra", LocalDate.now(), 25000.00 ));
-      return listaUsuarios;*/
+
         return usuarioService.obtenerTodos();
     }
 

@@ -1,7 +1,7 @@
 package com.osorio.mieconomia.controllers;
 
 
-import com.osorio.mieconomia.models.Detalle;
+import com.osorio.developer.commons.models.Detalle;
 import com.osorio.mieconomia.services.DetalleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
