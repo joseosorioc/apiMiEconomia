@@ -2,6 +2,7 @@ package com.osorio.mieconomia.controllers;
 
 
 import com.osorio.developer.commons.models.Detalle;
+import com.osorio.mieconomia.response.DetalleResponse;
 import com.osorio.mieconomia.services.DetalleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class DetalleController {
     @RequestMapping(value = "/detalles", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @CrossOrigin
-    public Page<Detalle> listarDetalles(Pageable pageable) {
+    public Page<DetalleResponse> listarDetalles(Pageable pageable) {
         return detalleService.obtenerTodo(pageable);
     }
 

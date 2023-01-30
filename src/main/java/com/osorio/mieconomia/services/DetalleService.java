@@ -1,12 +1,18 @@
 package com.osorio.mieconomia.services;
 
 import com.osorio.developer.commons.models.Detalle;
+import com.osorio.mieconomia.mappers.DetalleMapper;
 import com.osorio.mieconomia.repositories.DetalleRepository;
+import com.osorio.mieconomia.response.DetalleResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service("DetalleService")
@@ -15,6 +21,12 @@ public class DetalleService {
     @Autowired
     private DetalleRepository detalleRepository;
 
+    private DetalleMapper detalleMapper;
+
+    public DetalleService(DetalleRepository detalleRepository, DetalleMapper detalleMapper) {
+        this.detalleRepository = detalleRepository;
+        this.detalleMapper = detalleMapper;
+    }
 
     public Detalle guardarDetalle(Detalle detalle) {
         return detalleRepository.save(detalle);
@@ -45,8 +57,15 @@ public class DetalleService {
                 .orElseThrow(() -> new NullPointerException("No se pudo encontrar el detalle con id: " + id));
     }
 
-    public Page<Detalle> obtenerTodo(Pageable pageable) {
-        return detalleRepository.findAll(pageable);
+    public Page<DetalleResponse> obtenerTodo(Pageable pageable) {
+        List<DetalleResponse> detalleResponseList =  detalleRepository.findAll(pageable)
+                .stream()
+                .map(detalleMapper :: detalleToDetalleResponse )
+                .collect(Collectors.toList());
+
+
+        return new PageImpl<>(detalleResponseList);
+
     }
 
 

@@ -47,15 +47,11 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "/usuarios", method = RequestMethod.GET)
-<<<<<<< HEAD
+
     @CrossOrigin
     public Page<Usuario> obtenerUsuarios(Pageable pageable) {
         return usuarioService.obtenerTodos(pageable);
-=======
-    public List<Usuario> obtenerUsuarios() {
 
-        return usuarioService.obtenerTodos();
->>>>>>> main
     }
 
 
