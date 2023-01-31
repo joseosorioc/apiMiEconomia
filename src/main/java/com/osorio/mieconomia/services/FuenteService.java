@@ -13,9 +13,13 @@ import java.util.List;
 @Service("FuenteService")
 public class FuenteService {
 
-    @Autowired
-    private FuenteRepository fuenteRepository;
 
+    private final FuenteRepository fuenteRepository;
+
+    @Autowired
+    public FuenteService(FuenteRepository fuenteRepository) {
+        this.fuenteRepository = fuenteRepository;
+    }
 
     // Metodo guardar para guardar fuentes
     public Fuente guardarFuente(Fuente fuente )

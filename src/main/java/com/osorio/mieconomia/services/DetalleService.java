@@ -18,11 +18,12 @@ import java.util.stream.Collectors;
 @Service("DetalleService")
 public class DetalleService {
 
+
+    private final DetalleRepository detalleRepository;
+
+    private final DetalleMapper detalleMapper;
+
     @Autowired
-    private DetalleRepository detalleRepository;
-
-    private DetalleMapper detalleMapper;
-
     public DetalleService(DetalleRepository detalleRepository, DetalleMapper detalleMapper) {
         this.detalleRepository = detalleRepository;
         this.detalleMapper = detalleMapper;

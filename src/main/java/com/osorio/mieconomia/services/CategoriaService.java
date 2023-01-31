@@ -14,9 +14,13 @@ import java.util.List;
 @Service("CategoriaService")
 public class CategoriaService {
 
-    @Autowired
-    private CategoriaRepository categoriaRepository;
 
+    private final  CategoriaRepository categoriaRepository;
+
+    @Autowired
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
+    }
 
     // Guardar Categoria
     @Transactional

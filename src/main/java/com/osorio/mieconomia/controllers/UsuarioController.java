@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/v1/usuario")
 public class UsuarioController {
 
-    @Autowired
-    @Qualifier("UsuarioService")
-    private UsuarioService usuarioService;
 
+    @Qualifier("UsuarioService")
+    private final UsuarioService usuarioService;
+
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)

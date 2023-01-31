@@ -6,8 +6,6 @@ import com.osorio.developer.commons.models.Fuente;
 import com.osorio.mieconomia.services.FuenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +15,14 @@ import java.util.List;
 @RequestMapping(path = "api/v1/fuente")
 public class FuenteController {
 
-    @Autowired
-    @Qualifier("FuenteService")
-    private FuenteService fuenteService;
 
+    @Qualifier("FuenteService")
+    private final FuenteService fuenteService;
+
+    @Autowired
+    public FuenteController(FuenteService fuenteService) {
+        this.fuenteService = fuenteService;
+    }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)

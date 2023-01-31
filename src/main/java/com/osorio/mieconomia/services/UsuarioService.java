@@ -8,17 +8,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
-
-import java.util.logging.Logger;
-
-
 @Service("UsuarioService")
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
-    private static Logger logger = Logger.getLogger("Logger");
+    private final UsuarioRepository usuarioRepository;
+
+    @Autowired
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+
 
     public Usuario guardar(Usuario usuario) {
         return usuarioRepository.save(usuario);

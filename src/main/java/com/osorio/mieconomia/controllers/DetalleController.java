@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/v1/detalle")
 public class DetalleController {
 
+
+    private final DetalleService detalleService;
+
     @Autowired
-    @Qualifier("DetalleService")
-    private DetalleService detalleService;
-
-    public DetalleController() {
-
+    public DetalleController( DetalleService detalleService ) {
+        this.detalleService = detalleService;
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)

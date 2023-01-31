@@ -16,9 +16,14 @@ import java.util.List;
 @RequestMapping(path = "api/v1/categoria")
 public class CategoriaController {
 
-    @Autowired
+
     @Qualifier("CategoriaService")
-    private CategoriaService categoriaService;
+    private final CategoriaService categoriaService;
+
+    @Autowired
+    public CategoriaController(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
+    }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
